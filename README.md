@@ -1,3 +1,17 @@
-# react-typescript
+# Frontend starter
 
-A base app which uses React, Typescript, i18next translations with POEditor, React-router, Parcel, Font Awesome, SCSS and styled components
+A starter template for frontends.
+
+Start development with `yarn dev`, and production with `yarn start`.
+
+For SSG, do `yarn build && yarn export && yarn deploy`
+
+## Uses
+
+- Next.js
+- Tailwind
+- i18next
+- Feather icons
+- Typescript
+- Emotion
+- React
