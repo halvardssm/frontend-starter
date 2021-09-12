@@ -4,7 +4,7 @@ import { useTranslation } from "next-i18next";
 
 export const getStaticProps = async ({ locale }: { locale: string }) => ({
   props: {
-    ...await serverSideTranslations(locale, ["common"]),
+    ...(await serverSideTranslations(locale, ["common"])),
   },
 });
 
@@ -21,11 +21,7 @@ export default function Home() {
         <h1 className="text-6xl font-medium text-center">{t("title")}</h1>
       </header>
 
-      <main
-        className="pt-5 pb-5 flex flex-col justify-center max-w-5xl mx-5 lg:mx-auto"
-      >
-       
-      </main>
+      <main className="pt-5 pb-5 flex flex-col justify-center max-w-5xl mx-5 lg:mx-auto"></main>
     </div>
   );
 }
