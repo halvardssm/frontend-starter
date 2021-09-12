@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { useTheme } from "next-themes";
 import { Monitor, Moon, Sun } from "react-feather";
+import { FC } from "react";
 
 type Theme = "system" | "dark" | "light";
 const themes: Theme[] = ["system", "dark", "light"];
@@ -13,7 +14,7 @@ export function isTheme(theme: unknown): theme is Theme {
   return typeof theme === "string" && themes.includes(theme as Theme);
 }
 
-export default function ThemeToggle(props: ThemeToggleProps) {
+export const ThemeToggle: FC<ThemeToggleProps> = (props) => {
   const { theme, setTheme } = useTheme();
 
   const initialTheme: Theme = isTheme(theme) ? theme : "system";
@@ -55,4 +56,4 @@ export default function ThemeToggle(props: ThemeToggleProps) {
       </select>
     </div>
   );
-}
+};

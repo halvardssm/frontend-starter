@@ -1,12 +1,13 @@
 import { useRouter } from "next/router";
 import i18nextConfig from "../next-i18next.config";
-import Emoji from "./Emoji";
+import { Emoji } from "./Emoji";
+import { FC } from "react";
 
 export type LanguageToggleProps = {
   className: string;
 };
 
-export default function LanguageToggle(props: LanguageToggleProps) {
+export const LanguageToggle: FC<LanguageToggleProps> = (props) => {
   const router = useRouter();
 
   const languageMap: Record<string, string> = {
@@ -36,4 +37,4 @@ export default function LanguageToggle(props: LanguageToggleProps) {
       })}
     </div>
   );
-}
+};
