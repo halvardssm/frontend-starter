@@ -1,5 +1,4 @@
 import { useEffect, useState } from "react";
-import { useTheme } from "next-themes";
 import { Monitor, Moon, Sun } from "react-feather";
 import { FC } from "react";
 

@@ -1,7 +1,7 @@
 import { FC } from "react";
 import twemoji from "twemoji";
 
-interface EmojiProps {
+export interface EmojiProps {
   label?: string;
   symbol: string;
   className?: string;
