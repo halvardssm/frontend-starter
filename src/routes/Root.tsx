@@ -1,13 +1,17 @@
-import { useTranslation } from "react-i18next";
+import { useTheme } from "../lib/hooks/useTheme";
 
-export const RootRoute = () => {
-    const { t } = useTranslation();
+export default function Root() {
+  const { toggleTheme } = useTheme();
+  return (
+    <div id="root-route-component">
+      <h1 className="bg-red dark:bg-blue">Root</h1>
+      <button onClick={() => toggleTheme("dark")}>Dark</button>
+      <button onClick={() => toggleTheme("light")}>Light</button>
+      <button onClick={() => toggleTheme("system")}>System</button>
 
-    return <div className="flex flex-col justify-between h-screen">
-        <header className="my-12">
-            <h1 className="text-6xl font-medium text-center">{t("title")}</h1>
-        </header>
-
-        <main className="pt-5 pb-5 flex flex-col justify-center max-w-5xl mx-5 lg:mx-auto"></main>
+      <div className="bg-white dark:bg-slate-800 rounded-lg px-6 py-8">
+        <p className="text-slate-500 dark:text-slate-400 mt-2 text-sm">Mode</p>
+      </div>
     </div>
+  );
 }

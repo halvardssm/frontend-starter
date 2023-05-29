@@ -1,13 +1,12 @@
 import { createBrowserRouter } from "react-router-dom";
-import * as Sentry from "@sentry/react";
-import { RootRoute } from "./routes/Root";
+import Root from "./routes/root";
+import ErrorPage from "./routes/error-page";
+import { PATH_ROOT } from "./routes/paths";
 
-const sentryCreateBrowserRouter =
-  Sentry.wrapCreateBrowserRouter(createBrowserRouter);
-  
-export const router = sentryCreateBrowserRouter([
-    {
-      path: "/",
-      element: <RootRoute />,
-    }
-])
+export const router = createBrowserRouter([
+  {
+    path: PATH_ROOT,
+    element: <Root />,
+    errorElement: <ErrorPage />,
+  },
+]);

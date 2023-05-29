@@ -7,9 +7,9 @@ export type LanguageToggleProps = {
 };
 
 export const LanguageToggle: FC<LanguageToggleProps> = (props) => {
-  const {i18n}=useTranslation()
+  const { i18n } = useTranslation();
   const languageMap: Record<string, string> = {
-    en: "🇮🇪",
+    en: "🇬🇧",
     de: "🇩🇪",
     no: "🇳🇴",
   };

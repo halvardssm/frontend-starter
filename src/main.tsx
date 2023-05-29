@@ -1,9 +1,15 @@
-import React from 'react'
-import ReactDOM from 'react-dom/client'
-import App from './App'
+import React from "react";
+import ReactDOM from "react-dom/client";
+import App from "./App.tsx";
+import "./main.css";
+import "./sentry/config";
+import "./i18n/config";
+import { toggleThemeClass } from "./theme/config.ts";
 
-ReactDOM.createRoot(document.getElementById('root') as HTMLElement).render(
+toggleThemeClass();
+
+ReactDOM.createRoot(document.getElementById("root") as HTMLElement).render(
   <React.StrictMode>
     <App />
-  </React.StrictMode>,
-)
+  </React.StrictMode>
+);

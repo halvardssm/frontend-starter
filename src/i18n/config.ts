@@ -1,29 +1,25 @@
 import { initReactI18next } from "react-i18next";
 import i18n from "i18next";
 import LanguageDetector from "i18next-browser-languagedetector";
-import Backend from "i18next-http-backend";
+import HttpApi from "i18next-http-backend";
+import { IS_DEV } from "../variables";
 
-// This file is used to share reused values in the i18n configs of
-// src/i18n/server.ts, src/entry.server.ts, src/entry.client.ts
-export const allNameSpaces = ["common", "home"];
-export const defaultNamespace = "common";
-export const fallbackLanguage = "en";
-export const supportedLanguages = ["en", "it"];
+export const supportedLanguages = ["en"];
 
 i18n
-  .use(Backend)
+  .use(HttpApi)
   .use(LanguageDetector)
   .use(initReactI18next)
   .init({
-    // Basic shared configs
-    supportedLngs: supportedLanguages,
-    defaultNS: defaultNamespace,
-    fallbackLng: fallbackLanguage,
-    // This function detects the namespaces your routes rendered while SSR use
-    // and pass them here to load the translations
-    ns: allNameSpaces,
+    returnNull: false,
     backend: {
-      loadPath: "/locales/{{lng}}/{{ns}}.json",
+      loadPath: "/locales/{{lng}}.json",
+    },
+    lng: supportedLanguages[0],
+    fallbackLng: supportedLanguages,
+    debug: IS_DEV,
+    interpolation: {
+      escapeValue: false,
     },
   });
 
